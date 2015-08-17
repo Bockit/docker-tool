@@ -1,0 +1,18 @@
+{
+  "name": "docker-tool",
+  "version": "1.0.0",
+  "description": "Docker tools for versioning and publishing to a docker registry",
+  "main": "index.js",
+  "bin": {
+    "docker-tool": "./docker-tool.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "James Hiscock",
+    "email": "james@jameshiscock.com",
+    "website": "http://jameshiscock.com/"
+  },
+  "license": "BSD-3-Clause"
+}
