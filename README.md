@@ -6,10 +6,10 @@ Proper documentation and tests incoming, for now:
 
 -----
 
-Expects a package.json file with the following properties:
+Expects a package.json file with the following properties: (docker.name === `docker: { name: '' }`)
 
-* `name`: name of the image
-* `registry`: uri for the registry
+* `docker.name`: name of the image
+* `docker.registry`: uri for the registry
 * `version`: semver version of the image
 
 #### Usage
