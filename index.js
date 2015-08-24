@@ -15,13 +15,14 @@ exports.version = runVersion
  * - `params.latest` (true): Whether or not to also publish under the latest tag
  * - `params.dockerPath` ('/usr/bin/docker'): Path to docker executable
  * - `params.packagePath` ('./package.json'): Path to package.json
+ * - `params.buildPath` ('.'): Path to build
  * - `callback`: Called when the commands have been executed
  */
 function runPublish (params, callback) {
     params = params || {}
     callback = callback || noop
     publish(params, function (err, commands) {
-        if (err) callback(err)
+        if (err) return callback(err)
         execute(commands, callback)
     })
 }

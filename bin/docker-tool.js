@@ -13,13 +13,17 @@ function main () {
     if (args._[0] === 'publish') {
         var params = {}
         if (args['not-latest']) params.latest = false
-        return dockerTool.publish(params)
+        if (args._[1]) params.buildPath = args._[1]
+        if (args['package-path']) params.packagePath = args['package-path']
+        if (args['docker-path']) params.dockerPath = args['docker-path']
+        return dockerTool.publish(params, handleError)
     }
 
     if (args._[0] === 'version') {
-        return dockerTool.version({
-            segment: args._[1]
-        })
+        var params = { segment: args._[1] }
+        if (args['package-path']) params.packageath = args['package-path']
+
+        return dockerTool.version(params, handleError)
     }
 
     printUsage()
@@ -30,4 +34,11 @@ function printUsage () {
     console.error('  version (major|minor|patch)   Increments version')
     console.error('  publish                       Publishes to the docker registry in package.json')
     console.error("      --not-latest                  Don't set the latest tag")
+}
+
+function handleError (err) {
+    if (err) {
+        console.log(err.message)
+        printUsage()
+    }
 }
