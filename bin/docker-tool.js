@@ -11,7 +11,9 @@ function main () {
     }
 
     if (args._[0] === 'publish') {
-        return dockerTool.publish()
+        var params = {}
+        if (args['not-latest']) params.latest = false
+        return dockerTool.publish(params)
     }
 
     if (args._[0] === 'version') {
@@ -27,4 +29,5 @@ function printUsage () {
     console.error('\nUsage:')
     console.error('  version (major|minor|patch)   Increments version')
     console.error('  publish                       Publishes to the docker registry in package.json')
+    console.error("      --not-latest                  Don't set the latest tag")
 }
