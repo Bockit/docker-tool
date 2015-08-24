@@ -32,8 +32,13 @@ function main () {
 function printUsage () {
     console.error('\nUsage:')
     console.error('  version (major|minor|patch)   Increments version')
-    console.error('  publish                       Publishes to the docker registry in package.json')
+    console.error("      --package-path                Path to package.json\n")
+    console.error('  publish [build-directory]     Publishes to the docker registry in package.json,')
+    console.error('                                building build-directory or the current working directory')
+    console.error('                                if not specified.')
     console.error("      --not-latest                  Don't set the latest tag")
+    console.error("      --docker-path                 Path to docker binary")
+    console.error("      --package-path                Path to package.json")
 }
 
 function handleError (err) {
