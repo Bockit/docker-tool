@@ -1,6 +1,6 @@
 {
   "name": "docker-tool",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Docker tools for versioning and publishing to a docker registry",
   "main": "index.js",
   "bin": {
